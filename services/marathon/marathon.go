@@ -59,15 +59,25 @@ type marathonTasks struct {
 	Tasks marathonTaskList `json:"tasks"`
 }
 
+type healthCheckResults struct {
+  Alive               bool
+  ConsecutiveFailures int
+  FirstSuccess        string
+  LastFailure         string
+  LastSuccess         string
+  TaskId              string
+}
+
 type marathonTask struct {
-	AppId        string
-	Id           string
-	Host         string
-	Ports        []int
-	ServicePorts []int
-	StartedAt    string
-	StagedAt     string
-	Version      string
+	AppId               string
+	Id                  string
+	Host                string
+	Ports               []int
+	ServicePorts        []int
+	StartedAt           string
+	StagedAt            string
+	Version             string
+  HealthCheckResults  []healthCheckResults
 }
 
 func (slice marathonTaskList) Len() int {
@@ -129,6 +139,15 @@ func fetchMarathonApps(endpoint string) (map[string]marathonApp, error) {
 	return dataById, nil
 }
 
+func isTaskHealthy(healthChecks []healthCheckResults) bool {
+  for _, hc := range healthChecks {
+    if hc.Alive == false {
+      return false
+    }
+  }
+  return true
+}
+
 func fetchTasks(endpoint string) (map[string][]marathonTask, error) {
 	client := &http.Client{}
 	req, err := http.NewRequest("GET", endpoint+"/v2/tasks", nil)
@@ -157,6 +176,9 @@ func fetchTasks(endpoint string) (map[string][]marathonTask, error) {
 
 	tasksById := map[string][]marathonTask{}
 	for _, task := range taskList {
+    if isTaskHealthy(task.HealthCheckResults) == false {
+      continue
+    }
 		if tasksById[task.AppId] == nil {
 			tasksById[task.AppId] = []marathonTask{}
 		}
