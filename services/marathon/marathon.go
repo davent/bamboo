@@ -2,7 +2,7 @@ package marathon
 
 import (
 	"encoding/json"
-	"github.com/QubitProducts/bamboo/configuration"
+	"github.com/davent/bamboo/configuration"
 	"io/ioutil"
 	"net/http"
 	"sort"

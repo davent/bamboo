@@ -2,8 +2,8 @@ package api
 
 import (
 	"encoding/json"
-	"github.com/QubitProducts/bamboo/configuration"
-	eb "github.com/QubitProducts/bamboo/services/event_bus"
+	"github.com/davent/bamboo/configuration"
+	eb "github.com/davent/bamboo/services/event_bus"
 	"io"
 	"io/ioutil"
 	"log"

@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/QubitProducts/bamboo/Godeps/_workspace/src/github.com/samuel/go-zookeeper/zk"
-	conf "github.com/QubitProducts/bamboo/configuration"
-	"github.com/QubitProducts/bamboo/qzk"
+	"github.com/davent/bamboo/Godeps/_workspace/src/github.com/samuel/go-zookeeper/zk"
+	conf "github.com/davent/bamboo/configuration"
+	"github.com/davent/bamboo/qzk"
 )
 
 func showEvents(evts chan zk.Event) {

@@ -32,7 +32,7 @@ v0.2.11 improves API, deprecate previous API endpoint
 
 ### Releases and changelog
 
-Since Marathon API and behaviour may change over time, especially in this early days. You should expect we aim to catch up those changes, improve design and adding new features. We aim to maintain backwards compatibility when possible. Releases and changelog are maintained in the [releases page](https://github.com/QubitProducts/bamboo/releases). Please read them when upgrading.
+Since Marathon API and behaviour may change over time, especially in this early days. You should expect we aim to catch up those changes, improve design and adding new features. We aim to maintain backwards compatibility when possible. Releases and changelog are maintained in the [releases page](https://github.com/davent/bamboo/releases). Please read them when upgrading.
 
 ## Deployment Guide
 
@@ -218,8 +218,8 @@ curl -i http://localhost:8000/status
 ## Deployment
 
 We recommend installing binary with deb or rpm package. 
-The repository includes examples of [a Jenkins build script](https://github.com/QubitProducts/bamboo/blob/master/builder/ci-jenkins.sh)
-and [a deb packages build script](https://github.com/QubitProducts/bamboo/blob/master/builder/build.sh).
+The repository includes examples of [a Jenkins build script](https://github.com/davent/bamboo/blob/master/builder/ci-jenkins.sh)
+and [a deb packages build script](https://github.com/davent/bamboo/blob/master/builder/build.sh).
 Read comments in the script to customize your build distribution workflow.
 
 In short, [install fpm](https://github.com/jordansissel/fpm) and run the following command:
@@ -233,12 +233,12 @@ A deb package will be generated in `./builder` directory. You can copy to a serv
 
 The example deb package deploys:
 
-* Upstart job [`bamboo-server`](https://github.com/QubitProducts/bamboo/blob/master/builder/bamboo-server), e.g. upstart assumes `/var/bamboo/production.json` is configured correctly.
+* Upstart job [`bamboo-server`](https://github.com/davent/bamboo/blob/master/builder/bamboo-server), e.g. upstart assumes `/var/bamboo/production.json` is configured correctly.
 * Application directory is under `/opt/bamboo/`
 * Configuration and logs is under `/var/bamboo/`
 * Log file is rotated automatically
 
-In case you're not using upstart, a template init.d service is provided in [`init.d-bamboo-server`](https://github.com/QubitProducts/bamboo/blob/master/builder/init.d-bamboo-server). Install it with
+In case you're not using upstart, a template init.d service is provided in [`init.d-bamboo-server`](https://github.com/davent/bamboo/blob/master/builder/init.d-bamboo-server). Install it with
 ```
 sudo cp builder/init.d-bamboo-server /etc/init.d/bamboo-server
 sudo chown root:root /etc/init.d/bamboo-server
@@ -276,7 +276,7 @@ docker run -t -i --rm -p 8000:8000 -p 80:80 \
     bamboo
 ````
 
-Bamboo is started by supervisord in this Docker image. The [default Supervisord configuration](https://github.com/QubitProducts/bamboo/blob/master/builder/supervisord.conf) redirects stderr/stdout logs to the terminal. If you wish to turn the debug information off in production, you can use an [alternative configuration](https://github.com/QubitProducts/bamboo/blob/master/builder/supervisord.conf.prod).
+Bamboo is started by supervisord in this Docker image. The [default Supervisord configuration](https://github.com/davent/bamboo/blob/master/builder/supervisord.conf) redirects stderr/stdout logs to the terminal. If you wish to turn the debug information off in production, you can use an [alternative configuration](https://github.com/davent/bamboo/blob/master/builder/supervisord.conf.prod).
 
 ## Development and Contribution
 
@@ -293,7 +293,7 @@ go get github.com/tools/godep
 # Testing Toolkit
 go get -t github.com/smartystreets/goconvey
 
-cd $GOPATH/src/github.com/QubitProducts/bamboo
+cd $GOPATH/src/github.com/davent/bamboo
 
 # Build your binary
 go build

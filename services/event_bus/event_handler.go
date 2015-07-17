@@ -1,10 +1,10 @@
 package event_bus
 
 import (
-	"github.com/QubitProducts/bamboo/Godeps/_workspace/src/github.com/samuel/go-zookeeper/zk"
-	"github.com/QubitProducts/bamboo/configuration"
-	"github.com/QubitProducts/bamboo/services/haproxy"
-	"github.com/QubitProducts/bamboo/services/template"
+	"github.com/davent/bamboo/Godeps/_workspace/src/github.com/samuel/go-zookeeper/zk"
+	"github.com/davent/bamboo/configuration"
+	"github.com/davent/bamboo/services/haproxy"
+	"github.com/davent/bamboo/services/template"
 	"io/ioutil"
 	"log"
 	"os/exec"

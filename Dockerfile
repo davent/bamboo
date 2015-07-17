@@ -9,16 +9,16 @@ RUN apt-get install -yqq software-properties-common && \
     apt-get install -yqq haproxy golang git mercurial supervisor && \
     rm -rf /var/lib/apt/lists/*
 
-ADD . /opt/go/src/github.com/QubitProducts/bamboo
+ADD . /opt/go/src/github.com/davent/bamboo
 ADD builder/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 ADD builder/run.sh /run.sh
 
-WORKDIR /opt/go/src/github.com/QubitProducts/bamboo
+WORKDIR /opt/go/src/github.com/davent/bamboo
 
 RUN go get github.com/tools/godep && \
     go get -t github.com/smartystreets/goconvey && \
     go build && \
-    ln -s /opt/go/src/github.com/QubitProducts/bamboo /var/bamboo && \
+    ln -s /opt/go/src/github.com/davent/bamboo /var/bamboo && \
     mkdir -p /run/haproxy && \
     mkdir -p /var/log/supervisor
 

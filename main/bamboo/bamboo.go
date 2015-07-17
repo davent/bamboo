@@ -13,14 +13,14 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/QubitProducts/bamboo/Godeps/_workspace/src/github.com/go-martini/martini"
-	"github.com/QubitProducts/bamboo/Godeps/_workspace/src/github.com/kardianos/osext"
-	"github.com/QubitProducts/bamboo/Godeps/_workspace/src/github.com/natefinch/lumberjack"
-	"github.com/QubitProducts/bamboo/Godeps/_workspace/src/github.com/samuel/go-zookeeper/zk"
-	"github.com/QubitProducts/bamboo/api"
-	"github.com/QubitProducts/bamboo/configuration"
-	"github.com/QubitProducts/bamboo/qzk"
-	"github.com/QubitProducts/bamboo/services/event_bus"
+	"github.com/davent/bamboo/Godeps/_workspace/src/github.com/go-martini/martini"
+	"github.com/davent/bamboo/Godeps/_workspace/src/github.com/kardianos/osext"
+	"github.com/davent/bamboo/Godeps/_workspace/src/github.com/natefinch/lumberjack"
+	"github.com/davent/bamboo/Godeps/_workspace/src/github.com/samuel/go-zookeeper/zk"
+	"github.com/davent/bamboo/api"
+	"github.com/davent/bamboo/configuration"
+	"github.com/davent/bamboo/qzk"
+	"github.com/davent/bamboo/services/event_bus"
 )
 
 /*
